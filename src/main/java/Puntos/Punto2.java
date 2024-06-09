@@ -22,8 +22,10 @@ public class Punto2 {
             Document log;
 
             String usuarioKey = "usuario:1";
+            //recupero desde redis el usuario con id 1
             Map<String, String> userData = j.hgetAll(usuarioKey);
 
+            //lo hago objeto
             Usuario cliente1 = Usuario.fromMap(userData);
 
             System.out.println(cliente1.getNombre());

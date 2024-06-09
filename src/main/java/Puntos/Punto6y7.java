@@ -37,11 +37,6 @@ public class Punto6y7 {
 
 
 
-
-
-
-
-
         } catch (ErrorConnectionMongoException e) {
             e.printStackTrace();
 

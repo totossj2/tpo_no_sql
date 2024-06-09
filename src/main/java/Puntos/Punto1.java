@@ -18,7 +18,7 @@ public class Punto1 {
             Usuario cliente2 = new Usuario(2,"Juan", "Felizia", 45000000, "juan@gmail.com", null);
 
 
-            //usuario1
+            //cargo el usuario con id 1
             String usuarioKey = "usuario:" + cliente1.getIdUsuario();
             j.hset(usuarioKey, "id", String.valueOf(cliente1.getIdUsuario()));
             j.hset(usuarioKey, "nombre", cliente1.getNombre());

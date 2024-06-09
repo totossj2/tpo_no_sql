@@ -25,26 +25,21 @@ public class Punto4 {
             //recuperar carritos con idCarrito 1
             Document carritoDocument = carritos.find(Filters.eq("idCarrito", 1)).first();
 
-
             Carrito carrito = Carrito.fromDocument(carritoDocument);
-
-
 
 
             System.out.println("Carrito:");
             carrito.getArticulos();
 
 
-
             //recuperar estados anteriores de carritos
             System.out.println("Estado anterior:");
             Document logsDocument = logsCarrito.find(Filters.eq("idLog", 5)).first();
 
+            //cambio al estado anterior
             carrito.recuperarEstado(logsDocument);
 
             carrito.getArticulos();
-
-
 
         } catch (ErrorConnectionMongoException e) {
             e.printStackTrace();
