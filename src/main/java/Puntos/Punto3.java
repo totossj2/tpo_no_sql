@@ -25,9 +25,9 @@ public class Punto3 {
 
             Jedis j = PoolRedis.getInstancia().getConnection();
 
+            //recupero y armo objeto usuario
             String usuarioKey = "usuario:1";
             Map<String, String> userData = j.hgetAll(usuarioKey);
-
             Usuario comprador = Usuario.fromMap(userData);
 
             Articulo proteina = new Articulo("Proteina", 1000);

@@ -31,6 +31,7 @@ public class Punto9 {
             GridFSBucket gridFSBucket = GridFSBuckets.create(database);
 
             // Subir la imagen de proteina
+            // esta parte dara error en la pc del laboratorio ya que no tiene las imagenes descargadas.
             ObjectId proteinaImageId = uploadImageToGridFS(gridFSBucket, "/home/toto/Pictures/tpo_ing_datos/proteina", "proteina");
             // Subir la imagen de creatina
             ObjectId creatinaImageId = uploadImageToGridFS(gridFSBucket, "/home/toto/Pictures/tpo_ing_datos/creatina", "creatina");
