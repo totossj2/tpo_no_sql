@@ -74,7 +74,7 @@ public class Punto9 {
             catalogo.insertOne(preentrenoDocument);
 
 
-            System.out.println("Documentos insertados exitosamente.");
+            System.out.println("Documentos insertados en catalogo exitosamente.");
 
         } catch (ErrorConnectionMongoException e) {
             e.printStackTrace();
