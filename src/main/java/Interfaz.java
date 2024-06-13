@@ -479,7 +479,7 @@ public class Interfaz {
 
                         break;
 
-                    }
+                    } // pagar factura
                     case 9 : {
                         int sesion = user.logOut();
                         j.hset("usuario:"+user.getDni(), "sesion", String.valueOf(sesion));

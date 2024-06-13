@@ -3,7 +3,7 @@ package codigo.logica.pedidos;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Factura {
+public abstract class Factura {
     int numeroFactura;
     String nombreCompleto;
     LocalDate fechaEmision;
