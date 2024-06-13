@@ -12,25 +12,25 @@ import java.util.List;
 import java.util.Map;
 
 public class Pedido {
-    String promocion;
+    int promocion;
     Usuario comprador;
     LocalDate fechaPedido;
     private ArrayList<DetalleCarrito> listaArticulos;
     int idPedido;
 
 
-    public Pedido (int idPedido, Usuario comprador ,String promocion, LocalDate fechaPedido) {
+    public Pedido (int idPedido, Usuario comprador ,int promocion, LocalDate fechaPedido) {
         this.idPedido = idPedido;
         this.comprador = comprador;
         this.promocion = promocion;
         this.fechaPedido = fechaPedido;
     }
 
-    public void agregarArticulo(String nombreArticulo, int cantidad, int precioUnitario) {
+    public void agregarArticulo(int idArticulo, String nombreArticulo, int cantidad, int precioUnitario) {
         if (listaArticulos == null) {
             listaArticulos = new ArrayList<DetalleCarrito>();
         }
-        DetalleCarrito detalle = new DetalleCarrito(nombreArticulo, cantidad, precioUnitario);
+        DetalleCarrito detalle = new DetalleCarrito(idArticulo, nombreArticulo, cantidad, precioUnitario);
         listaArticulos.add(detalle);
     }
 
@@ -40,12 +40,12 @@ public class Pedido {
         pedidoData.put("promocion", document.getString("promocion"));
         pedidoData.put("fechaPedido", document.getDate("fechaPedido").toInstant().atZone(ZoneId.systemDefault()).toLocalDate().toString());
         Usuario comprador = Usuario.fromDocument((Document) document.get("usuario"));
-        Pedido pedido = new Pedido(Integer.parseInt(pedidoData.get("idPedido")), comprador, pedidoData.get("promocion"), LocalDate.parse(pedidoData.get("fechaPedido")));
+        Pedido pedido = new Pedido(Integer.parseInt(pedidoData.get("idPedido")), comprador, Integer.parseInt(pedidoData.get("promocion")), LocalDate.parse(pedidoData.get("fechaPedido")));
 
         List<Document> articulos = (List<Document>) document.get("articulos");
 
         for (Document articulo : articulos) {
-            pedido.agregarArticulo(articulo.getString("nombreArticulo"), articulo.getInteger("cantidad"), articulo.getInteger("precioUnitario"));
+            pedido.agregarArticulo(articulo.getInteger("idProducto"), articulo.getString("nombreArticulo"), articulo.getInteger("cantidad"), articulo.getInteger("precioUnitario"));
         }
 
         return pedido;
@@ -66,6 +66,10 @@ public class Pedido {
         return montoTotal;
     }
 
+    public List<DetalleCarrito> getDetalles(){
+        return listaArticulos;
+    }
+
     public int getId() {
         return idPedido;
     }
@@ -78,14 +82,15 @@ public class Pedido {
         return fechaPedido;
     }
 
-    public String getPromocion() {
+    public int getPromocion() {
         return promocion;
     }
 
     public List<Document> adaptarArticulos() {
         List<Document> articulosAdaptados = new ArrayList<>();
         for (DetalleCarrito detalle : listaArticulos) {
-            Document detalleDocument = new Document("nombreArticulo", detalle.getNombreArticulo())
+            Document detalleDocument = new Document("idProducto", detalle.getIdProducto())
+                    .append("nombreArticulo", detalle.getNombreArticulo())
                     .append("cantidad", detalle.getCantidad())
                     .append("precioUnitario", detalle.getPrecioUnitario())
                     .append("precioTotal", detalle.getPrecioTotal());

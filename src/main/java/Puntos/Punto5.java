@@ -15,7 +15,7 @@ import redis.clients.jedis.Jedis;
 import java.time.LocalDate;
 
 
-public class Punto5 {
+public class Punto5 {/**
     public static void main(String[] args) {
         try {
             MongoCollection<Document> pedidos = PoolMongoDB.getInstancia().getConnection("tpo").getCollection("pedidos");
@@ -49,5 +49,5 @@ public class Punto5 {
         } finally {
             PoolMongoDB.closeConnection();
         }
-    }
+    }**/
 }

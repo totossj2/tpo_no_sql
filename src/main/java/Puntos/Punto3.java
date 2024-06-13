@@ -16,7 +16,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Map;
 
-public class Punto3 {
+public class Punto3 {/**
     public static void main(String[] args) {
 
         try {
@@ -92,5 +92,5 @@ public class Punto3 {
             PoolRedis.closeConnection();
         }
 
-    }
+    }**/
 }

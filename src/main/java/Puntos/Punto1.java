@@ -8,7 +8,7 @@ import redis.clients.jedis.Jedis;
 
 //redis-cli para conectarse a redis
 
-public class Punto1 {
+public class Punto1 {/**
     public static void main(String[] args) {
         System.out.println("Accedemos a Redis\n\n");
         try {
@@ -34,5 +34,5 @@ public class Punto1 {
         } finally {
             PoolRedis.closeConnection();
         }
-    }
+    }**/
 }

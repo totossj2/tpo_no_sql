@@ -14,7 +14,7 @@ import redis.clients.jedis.Jedis;
 import java.lang.reflect.Type;
 import java.util.Map;
 
-public class Punto4 {
+public class Punto4 {/**
     //recuperar carritos a partir de mongodb
     //recuperar estados anteriores de carritos a partir de mongo
     public static void main(String[] args) {
@@ -46,5 +46,5 @@ public class Punto4 {
         } finally {
             PoolMongoDB.closeConnection();
         }
-    }
+    }**/
 }

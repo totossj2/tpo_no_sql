@@ -11,7 +11,7 @@ import redis.clients.jedis.Jedis;
 
 import java.util.Map;
 
-public class Punto2 {
+public class Punto2 {/**
     public static void main(String[] args) {
         try {
             MongoCollection<Document> logs = PoolMongoDB.getInstancia().getConnection("tpo").getCollection("logs");
@@ -46,5 +46,5 @@ public class Punto2 {
             PoolMongoDB.closeConnection();
             PoolRedis.closeConnection();
         }
-    }
+    }**/
 }

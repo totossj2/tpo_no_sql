@@ -5,12 +5,15 @@ public class DetalleCarrito {
     private int cantidad;
     private int precioUnitario;
     private int precioTotal;
+    private int idProducto;
 
-    public DetalleCarrito(String nombreArticulo, int cantidad, int precioUnitario) {
+    public DetalleCarrito(int idProducto , String nombreArticulo, int cantidad, int precioUnitario) {
         this.nombreArticulo = nombreArticulo;
         this.cantidad = cantidad;
         this.precioUnitario = precioUnitario;
         this.precioTotal = cantidad * precioUnitario;
+        this.idProducto = idProducto;
+
     }
 
     public String getNombreArticulo() {
@@ -24,6 +27,9 @@ public class DetalleCarrito {
     }
     public int getPrecioTotal() {
         return precioTotal;
+    }
+    public int getIdProducto(){
+        return idProducto;
     }
 
 
